@@ -1,0 +1,73 @@
+// Place all the styles related to the ccsf_rails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@function pow($base, $exp) {
+    $ret: $base;
+    @if $exp == 0 {
+        $ret: 1;
+    } @else if $exp == 1 {
+        $ret: $base;
+    } @else if $exp > 1 {
+        @for $i from 2 through $exp {
+            $ret: $ret * $base;
+        }
+    }
+    @return $ret;
+}
+
+
+
+$h1FontSizePx: 18px;
+$h1FontSizeRem: 1.8rem;
+$h1MarginTB: 30px;
+$h1MarginLR: 20px;
+
+$pFontSizePx: 10px;
+$pFontSizeRem: 1.0rem;
+
+$lowerLevel: 0.8;
+
+$backgroundColor: #F1F1F1;
+
+%BlackCenter {
+    color:black;
+    text-align:center;
+}
+
+@for $i from 1 through 4 {
+    $ratio: pow($lowerLevel, $i - 1);
+    h#{$i} {
+        font-size: $h1FontSizePx * $ratio;
+        font-size: $h1FontSizeRem * $ratio;
+        margin: $h1MarginTB * $ratio $h1MarginLR * $ratio;
+        @extend %BlackCenter;
+    }
+}
+
+p {
+    font-size: $pFontSizePx;
+    font-size: $pFontSizeRem;
+}
+
+ul {
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+a {
+    &:link {color:#FF0000;}
+    &:visited {color:#00FF00;}
+    &:hover {background-color: darken($backgroundColor, 50);}
+    &:active {color:#0000FF;}
+}
+
+.small {
+    font-size: $pFontSizePx * 0.6;
+    font-size: $pFontSizeRem * 0.6;
+}
+
+.textCenter {
+    text-align:center;
+}
