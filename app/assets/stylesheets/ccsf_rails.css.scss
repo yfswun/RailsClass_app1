@@ -18,13 +18,14 @@
 
 
 
-$h1FontSizePx: 18px;
-$h1FontSizeRem: 1.8rem;
+$h1FontSizePx: 24px;
+$h1FontSizeRem: 2.4rem;
 $h1MarginTB: 30px;
-$h1MarginLR: 20px;
+$h1MarginLR: 0px;
+$h1PaddingTB: 20px;
 
-$pFontSizePx: 10px;
-$pFontSizeRem: 1.0rem;
+$pFontSizePx: 12px;
+$pFontSizeRem: 1.2rem;
 
 $lowerLevel: 0.8;
 
@@ -41,8 +42,13 @@ $backgroundColor: #F1F1F1;
         font-size: $h1FontSizePx * $ratio;
         font-size: $h1FontSizeRem * $ratio;
         margin: $h1MarginTB * $ratio $h1MarginLR * $ratio;
+        padding: $h1PaddingTB * $ratio 0;
         @extend %BlackCenter;
     }
+}
+
+h2 {
+    background-color:#889976;
 }
 
 p {
@@ -57,8 +63,9 @@ ul {
 }
 
 a {
+    padding:5px;
     &:link {color:#FF0000;}
-    &:visited {color:#00FF00;}
+    &:visited {color:#006400;}
     &:hover {background-color: darken($backgroundColor, 50);}
     &:active {color:#0000FF;}
 }
@@ -66,8 +73,4 @@ a {
 .small {
     font-size: $pFontSizePx * 0.6;
     font-size: $pFontSizeRem * 0.6;
-}
-
-.textCenter {
-    text-align:center;
 }
